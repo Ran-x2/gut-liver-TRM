@@ -6,7 +6,7 @@ library(slingshot)
 library(monocle)
 library(gam)
 library(ggplot2)
-library(plyr)
+
 library(MAST)
 library(clusterExperiment)
 library(SingleCellExperiment)
@@ -17,6 +17,8 @@ library(pheatmap)
 library(monocle3)
 library(SeuratWrappers)
 library(magrittr) # needs to be run every time you start R and want to use %>%
+
+library(plyr)
 library(dplyr)  
 library(SeuratDisk)
 library(SeuratData)
