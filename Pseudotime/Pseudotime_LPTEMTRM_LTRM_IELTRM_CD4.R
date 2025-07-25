@@ -1,4 +1,4 @@
-setwd('E:/AAA_Labwork/T cells/v2/')
+setwd('E:/AAA_Labwork/T cells/v4_revision')
 LPTEMTRM_LTRM_IELTRM = readRDS('LPTRM_IELTRM_CD4.rds')
 start <- slingshot(LPTEMTRM_LTRM_IELTRM, clusterLabels = 'tissue.celltype', reducedDim = 'PCA')
 metadata = colData(LPTEMTRM_LTRM_IELTRM)
@@ -6,7 +6,8 @@ my_colors =  c('L TCRab CD4 TRM' = '#68962D','IEL TCRab CD4 TRM' = '#3a8433','LP
 
 #Set the pseudotime variable
 t <- start$slingPseudotime_1
-
+metadata['pseudotime'] = t
+write.table(metadata['pseudotime'],'LPTRM_IELTRM_CD4_ptime.csv', sep = ',')
 #Extract the gene expression matrix
 Y <- assay(start)
 

@@ -1,4 +1,4 @@
-setwd('E:/AAA_Labwork/T cells/v2')
+setwd('E:/AAA_Labwork/T cells/v4_revision')
 PBTeff_LTeff_CD8 = readRDS('PBTeff_LTeff_CD8.rds')
 start <- slingshot(PBTeff_LTeff_CD8, clusterLabels = 'tissue.celltype', reducedDim = 'PCA')
 metadata = colData(PBTeff_LTeff_CD8)
@@ -7,7 +7,8 @@ my_colors = c('PB TCRab CD8ab Teff' = '#A7E1F1','L TCRab CD8ab Teff' = '#7ABEE2'
 
 #Set the pseudotime variable
 t <- start$slingPseudotime_1
-
+metadata['pseudotime'] = t
+write.table(metadata['pseudotime'],'PBTeff_LTeff_CD8_ptime.csv', sep = ',')
 #Extract the gene expression matrix
 Y <- assay(start)
 
@@ -58,7 +59,7 @@ library(viridisLite)
 
 # Define color gradient with viridis function
 color_gradient <- viridis(100)
-
+saveRDS(heatdata, 'PBTeff_LTeff_CD8_heatdata.rds')
 # Generate heatmap with new color gradient
 ptime_heatmap = pheatmap(heatdata,
                          annotation_col = tissue.celltype_df, 
