@@ -60,6 +60,7 @@ library(viridisLite)
 # Define color gradient with viridis function
 color_gradient <- viridis(100)
 saveRDS(heatdata, 'PBTeff_LTeff_CD8_heatdata.rds')
+write.table(heatdata,'PBTeff_LTeff_CD8_ptime_gam.csv', sep = ',')
 # Generate heatmap with new color gradient
 ptime_heatmap = pheatmap(heatdata,
                          annotation_col = tissue.celltype_df, 
