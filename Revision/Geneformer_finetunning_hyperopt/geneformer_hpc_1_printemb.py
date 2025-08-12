@@ -19,7 +19,6 @@ output_prefix = storage_dir.split('/mnt/vstor/SOM_PATH_DKB50/members/rxr456/Trap
 print(output_prefix)
 vanilla_model = "/home/rxr456/Geneformer/gf-12L-95M-i4096"
 json_filename = glob.glob(f"{storage_dir}/*geneformer_cellClassifier*/ksplit1/_objective*/*experiment_state*.json")
-json_filename = glob.glob("ksplit1/_objective*/*experiment_state*.json")
 print(json_filename)
 text = Path(json_filename[0]).read_text(encoding="utf-8", errors="ignore")
 
