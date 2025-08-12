@@ -34,7 +34,7 @@ max_acc_index = max(range(len(acc_hits)), key=lambda i: acc_hits[i])
 trial_name = unique_res_hits[max_acc_index]
 
 checkpoint_parent_dir = json_filename[0].split('_objective')[0]+'run-'+trial_name
-subfolders = [f for f in os.listdir(checkpoint_parent_dir) if os.path.isdir(os.path.join(checkpoint_parent_dir, f)))]
+subfolders = [f for f in os.listdir(checkpoint_parent_dir) if os.path.isdir(os.path.join(checkpoint_parent_dir, f))]
 
 if subfolders:
     only_subfolder_path = os.path.join(checkpoint_parent_dir, subfolders[0])
