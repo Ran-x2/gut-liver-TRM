@@ -9,9 +9,9 @@ from geneformer import InSilicoPerturberStats
 from geneformer import EmbExtractor
 from geneformer import TranscriptomeTokenizer
 from geneformer import Classifier
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+# os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-storage_dir = os.path.dirname(os.path.abspath(__file__))
+storage_dir = os.getcwd()
 output_prefix = storage_dir.split('/mnt/vstor/SOM_PATH_DKB50/members/rxr456/Trapecar_geneformer_finetune/')[1] + '_expansion'
 vanilla_model = "/home/rxr456/Geneformer/gf-12L-95M-i4096"
 print(output_prefix)
