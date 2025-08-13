@@ -27,7 +27,7 @@ print(json_filename)
 text = Path(json_filename[0]).read_text(encoding="utf-8", errors="ignore")
 
 NUM = r'[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?'
-pat_acc_escaped = re.compile(r'\\"eval_accuracy\\":\s*(' + NUM + r'),\\n')
+pat_acc_escaped = re.compile(r'\\"eval_macro_f1\\":\s*(' + NUM + r'),\\n')
 pat_res_escaped = re.compile(
     r'\\"trial_id\\":\s*\\"(?P<val>(?:[^\\]|\\(?!"))*)\\",\\n'
 )
