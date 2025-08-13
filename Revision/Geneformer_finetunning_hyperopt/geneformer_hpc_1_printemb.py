@@ -4,15 +4,15 @@ import os
 import pickle
 from datetime import datetime
 sys.path.append(os.getcwd())
+import glob
+import json
+from pathlib import Path
+import re
 from geneformer import InSilicoPerturber
 from geneformer import InSilicoPerturberStats
 from geneformer import EmbExtractor
 from geneformer import TranscriptomeTokenizer
 from geneformer import Classifier
-import glob
-import json
-from pathlib import Path
-import re
 
 storage_dir = os.getcwd()
 output_prefix = storage_dir.split('/mnt/vstor/SOM_PATH_DKB50/members/rxr456/Trapecar_geneformer_finetune/')[1] + '_expansion'
@@ -63,12 +63,16 @@ all_metrics = cc.evaluate_saved_model(
         output_prefix=output_prefix,
     )
 
+cc.plot_conf_mat(
+        conf_mat_dict={"Geneformer": all_metrics["conf_matrix"]},
+        output_directory=f"{storage_dir}/",
+        output_prefix=output_prefix
+)
 # with open(f"{storage_dir}/{six_digit_date}_geneformer_cellClassifier_{output_prefix}/{output_prefix}_eval_metrics_dict.pkl", 'rb') as file:
 #     all_metrics = pickle.load(file)
 
 embex = EmbExtractor(model_type="CellClassifier",
-                     num_classes=2, 
-                     max_ncells=None,
+                     num_classes=2,
                      emb_layer=-1, 
                      emb_label=["top10_or_not"],
                      labels_to_plot=["top10_or_not"],
@@ -85,9 +89,3 @@ embex.plot_embs(embs=embs,
                 plot_style="heatmap",
                 output_directory=f"{storage_dir}/",
                 output_prefix="embeddings_heatmap")
-
-cc.plot_conf_mat(
-        conf_mat_dict={"Geneformer": all_metrics["conf_matrix"]},
-        output_directory=f"{storage_dir}/",
-        output_prefix=output_prefix
-)
