@@ -68,7 +68,7 @@ all_metrics = cc.evaluate_saved_model(
 
 embex = EmbExtractor(model_type="CellClassifier",
                      num_classes=2, 
-                     max_ncells=10000,
+                     max_ncells=None,
                      emb_layer=-1, 
                      emb_label=["top10_or_not"],
                      labels_to_plot=["top10_or_not"],
