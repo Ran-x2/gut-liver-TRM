@@ -54,24 +54,25 @@ cell_states_to_model = {
     "goal_state": "True"
 }
 
-# embex = EmbExtractor(model_type="CellClassifier",
-#                      num_classes=2, 
-#                      max_ncells=50000,
-#                      emb_layer=-1, 
-#                      summary_stat="exact_mean",  # I don't want this stat
-#                      forward_batch_size=16,
-#                      nproc=60)
+embex = EmbExtractor(model_type="CellClassifier",
+                     num_classes=2,
+                     max_ncells=10000,
+                     emb_layer=-1, 
+                     emb_label=["top10_or_not"],
+                     summary_stat="exact_mean",
+                     forward_batch_size=16,
+                     nproc=60)
 
-# state_embs_dict = embex.get_state_embs(
-#     cell_states_to_model,
-#     model,
-#     f"{storage_dir}/tokenized.dataset",
-#     f"{storage_dir}",
-#     "state_emb"
-# )
+state_embs_dict = embex.get_state_embs(
+    cell_states_to_model,
+    model,
+    f"{storage_dir}/tokenized.dataset",
+    f"{storage_dir}",
+    output_prefix + "_state_emb"
+)
 
-with open(f"{storage_dir}/state_emb.pkl", 'rb') as file:
-    state_embs_dict = pickle.load(file)
+# with open(f"{storage_dir}/state_emb.pkl", 'rb') as file:
+#     state_embs_dict = pickle.load(file)
 
 isp = InSilicoPerturber(perturb_type="overexpression",
                         genes_to_perturb="all",
