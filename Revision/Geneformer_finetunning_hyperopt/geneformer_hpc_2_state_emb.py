@@ -46,6 +46,7 @@ if subfolders:
     print(only_subfolder_path)
 else:
     print("No subfolder found.")
+
 model = only_subfolder_path
 
 cell_states_to_model = {
@@ -57,6 +58,7 @@ cell_states_to_model = {
 embex = EmbExtractor(model_type="CellClassifier",
                      num_classes=2,
                      max_ncells=10000,
+                     emb_mode="cls",
                      emb_layer=-1, 
                      emb_label=["top10_or_not"],
                      summary_stat="exact_mean",
@@ -71,18 +73,18 @@ state_embs_dict = embex.get_state_embs(
     output_prefix + "_state_emb"
 )
 
-# with open(f"{storage_dir}/state_emb.pkl", 'rb') as file:
+# with open(f"{storage_dir}/{output_prefix}_state_emb.pkl", 'rb') as file:
 #     state_embs_dict = pickle.load(file)
 
-isp = InSilicoPerturber(perturb_type="overexpression",
+isp = InSilicoPerturber(perturb_type="overexpress",
                         genes_to_perturb="all",
                         combos=0,
                         anchor_gene=None,
                         model_type="CellClassifier",
                         num_classes=2,
+                        emb_mode="cls",
                         cell_states_to_model=cell_states_to_model,
                         state_embs_dict=state_embs_dict,
-                        emb_mode="cls",
                         max_ncells=5000,
                         emb_layer=-1,
                         forward_batch_size=1,

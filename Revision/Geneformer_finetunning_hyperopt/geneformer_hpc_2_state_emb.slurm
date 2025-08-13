@@ -2,12 +2,12 @@
 #SBATCH --job-name=rxr456_geneformer_TRM_revision_perturb5000
 #SBATCH --output=geneformer_TRM_revision_perturb5000_output.txt
 #SBATCH --error=geneformer_TRM_revision_perturb5000_error.txt
-#SBATCH --time=20:00
+#SBATCH --time=3-00:00:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
-#SBATCH --mem=28gb
+#SBATCH --mem=128gb
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=15
+#SBATCH --cpus-per-task=65
 #SBATCH --mail-user=rxr456@case.edu
 #SBATCH --mail-type=ALL
 
