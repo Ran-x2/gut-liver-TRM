@@ -5,9 +5,9 @@
 #SBATCH --time=20:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
-#SBATCH --mem=128gb
+#SBATCH --mem=28gb
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=65
+#SBATCH --cpus-per-task=15
 #SBATCH --mail-user=rxr456@case.edu
 #SBATCH --mail-type=ALL
 
