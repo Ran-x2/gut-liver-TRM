@@ -36,17 +36,19 @@ cds@clusters$UMAP=list(
   partition_result = NA
 )
 reducedDims(cds)$UMAP=reducedDim(LPTEMTRM_LTRM_IELTRM, "UMAP")
+
 cds=learn_graph(cds, use_partition = FALSE)
 
-root_cells=colnames(cds)[colData(cds)$tissue.celltype == "L TCRab CD4 TRM"]
-cds=order_cells(cds, root_cells = root_cells)
+# root_cells=colnames(cds)[colData(cds)$tissue.celltype == "L TCRab CD4 TRM"]
+# cds=order_cells(cds, root_cells = root_cells)
 
-#cds=order_cells(cds)
+cds=order_cells(cds)
 
-pseudotime=pseudotime(cds)
+pseudotime=pseudotime(cds,reduction_method = "UMAP")
 pseudotime_df=data.frame(cell = names(pseudotime), pseudotime = pseudotime)
-write.csv(pseudotime_df, "LPTRM_IELTRM_CD4_monocle3_pseudotime.csv")
-pseudotime = read.csv("LPTRM_IELTRM_CD4_monocle3_pseudotime.csv",row.names = 1)['pseudotime']
+write.csv(pseudotime_df, "revision/monocle3_ptime/LPTRM_IELTRM_CD4_monocle3_pseudotime.csv")
+# pseudotime = read.csv("LPTRM_IELTRM_CD4_monocle3_pseudotime.csv",row.names = 1)['pseudotime']
+
 # Get expression matrix
 #expr_mat=assay(cds, "counts")
 # or normalized log (after Seurat normalization)
@@ -105,6 +107,7 @@ sig_genes <- subset(res, is.finite(padj) & padj < 0.05)
 topgenes   <- sig_genes[order(-sig_genes$dev_expl, sig_genes$padj), ]
 topgenes=topgenes[!grepl("^RP|^MT-", row.names(topgenes)),]  # remove RPs and MTs
 topgenes = row.names(topgenes)[1:50]
+# topgenes = row.names(expr_matrix)[1:50] #testing color map!!
 topgenes
 # Subset and scale data
 heatdata=expr_mat[rownames(expr_mat) %in% topgenes, order(pseudotime, na.last = NA)]
@@ -115,7 +118,8 @@ heatdata[heatdata < -2] = -2
 # Annotation
 annotation_col=data.frame(
   tissue.celltype = colData(cds)[colnames(heatdata),]$tissue.celltype,
-  pseudotime = pseudotime[colnames(heatdata),]
+  pseudotime = pseudotime[colnames(heatdata)]
+  # pseudotime = pseudotime[colnames(heatdata),]
 )
 rownames(annotation_col) = colnames(heatdata)
 annotation_col$tissue.celltype=factor(annotation_col$tissue.celltype,
@@ -134,8 +138,11 @@ annotation_colors = list(
 
 # Heatmap
 color_gradient=viridis(100)
+
 saveRDS(heatdata, 'revision/monocle3_ptime/LPTRM_IELTRM_CD4_monocle3_heatdata_mcgv_gam.rds')
 write.table(heatdata, 'revision/monocle3_ptime/LPTRM_IELTRM_CD4_monocle3_ptime_mcgv_gam.csv', sep = ',')
+
+
 
 ptime_heatmap = pheatmap(heatdata,
                          annotation_col = annotation_col,
