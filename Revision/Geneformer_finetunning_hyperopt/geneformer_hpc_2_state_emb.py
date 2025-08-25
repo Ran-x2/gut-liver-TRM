@@ -17,7 +17,6 @@ from geneformer import EmbExtractor
 from geneformer import TranscriptomeTokenizer
 from geneformer import Classifier
 
-# f = open("250418_test_output.txt", "a")
 storage_dir = os.getcwd()
 output_prefix = storage_dir.split('/mnt/vstor/SOM_PATH_DKB50/members/rxr456/Trapecar_geneformer_finetune/')[1] + '_expansion'
 print(output_prefix)
@@ -49,6 +48,8 @@ else:
 
 model = only_subfolder_path
 
+print(model)
+
 cell_states_to_model = {
     "state_key": "top10_or_not", 
     "start_state": "False", 
@@ -63,7 +64,7 @@ embex = EmbExtractor(model_type="CellClassifier",
                      emb_label=["top10_or_not"],
                      summary_stat="exact_mean",
                      forward_batch_size=16,
-                     nproc=60)
+                     nproc=25)
 
 state_embs_dict = embex.get_state_embs(
     cell_states_to_model,
@@ -73,6 +74,7 @@ state_embs_dict = embex.get_state_embs(
     output_prefix + "_state_emb"
 )
 
+print('emb dict generated')
 # with open(f"{storage_dir}/{output_prefix}_state_emb.pkl", 'rb') as file:
 #     state_embs_dict = pickle.load(file)
 
@@ -88,8 +90,8 @@ isp = InSilicoPerturber(perturb_type="overexpress",
                         max_ncells=5000,
                         emb_layer=-1,
                         forward_batch_size=1,
-                        nproc=60)
-
+                        nproc=25)
+print('start perturbing')
 isp.perturb_data(
     model,
     f"{storage_dir}/tokenized.dataset",
@@ -102,7 +104,7 @@ ispstats = InSilicoPerturberStats(mode="goal_state_shift",
                                   combos=0,
                                   anchor_gene=None,
                                   cell_states_to_model=cell_states_to_model)
-
+print('finish perturbing')
 ispstats.get_stats(
     f"{storage_dir}",
     None,

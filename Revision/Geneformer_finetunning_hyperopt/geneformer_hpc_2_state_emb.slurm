@@ -2,12 +2,12 @@
 #SBATCH --job-name=rxr456_geneformer_TRM_revision_perturb5000
 #SBATCH --output=geneformer_TRM_revision_perturb5000_output.txt
 #SBATCH --error=geneformer_TRM_revision_perturb5000_error.txt
-#SBATCH --time=3-00:00:00
+#SBATCH --time=8:00:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --mem=128gb
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=65
+#SBATCH --cpus-per-task=20
 #SBATCH --mail-user=rxr456@case.edu
 #SBATCH --mail-type=ALL
 
@@ -23,7 +23,7 @@ repo_dir=/home/rxr456/Github/gut-liver-TRM/Revision/Geneformer_finetunning_hyper
 repo_script="$repo_dir/geneformer_hpc_2_state_emb.py"   # single script in repo
 
 # Run serially: same script, different working dir each time
-for subdir in "$storage_dir"/*/; do
+for subdir in "$storage_dir"/*Donor_AJKQ118_L_*/; do
   # optional: only run if subdir contains a specific file
   # [[ -f "$subdir/config.yaml" ]] || { echo "Skip $subdir (no config)"; continue; }
 

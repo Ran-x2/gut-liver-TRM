@@ -1,0 +1,46 @@
+Running /home/rxr456/Github/gut-liver-TRM/Revision/Geneformer_finetunning_hyperopt/geneformer_hpc_1_hyperopt.py in /mnt/vstor/SOM_PATH_DKB50/members/rxr456/Trapecar_geneformer_finetune/Donor_AJG2309_L_TCRab_CD8ab_TRM/ ...
+Donor_AJG2309_L_TCRab_CD8ab_TRM_expansion
+Tokenizing /mnt/vstor/SOM_PATH_DKB50/members/rxr456/Trapecar_geneformer_finetune/Donor_AJG2309_L_TCRab_CD8ab_TRM/Donor AJG2309 L TCRab CD8ab TRM.h5ad
+/mnt/vstor/SOM_PATH_DKB50/members/rxr456/Trapecar_geneformer_finetune/Donor_AJG2309_L_TCRab_CD8ab_TRM/Donor AJG2309 L TCRab CD8ab TRM.h5ad has no column attribute 'filter_pass'; tokenizing all cells.
+Creating dataset.
+****** Validation split: 1/1 ******
+
+╭───────────────────────────────────────────────────────────────────╮
+│ Configuration for experiment     _objective_2025-08-13_01-06-34   │
+├───────────────────────────────────────────────────────────────────┤
+│ Search algorithm                 SearchGenerator                  │
+│ Scheduler                        FIFOScheduler                    │
+│ Number of trials                 100                              │
+╰───────────────────────────────────────────────────────────────────╯
+
+View detailed results here: /mnt/vstor/SOM_PATH_DKB50/members/rxr456/Trapecar_geneformer_finetune/Donor_AJG2309_L_TCRab_CD8ab_TRM/250813_geneformer_cellClassifier_Donor_AJG2309_L_TCRab_CD8ab_TRM_expansion/ksplit1/_objective_2025-08-13_01-06-34
+
+Trial status: 1 PENDING
+Current time: 2025-08-13 01:06:34. Total running time: 0s
+Logical resource usage: 0/64 CPUs, 0/1 GPUs (0.0/1.0 accelerator_type:G)
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Trial name            status       num_train_epochs     learning_rate     weight_decay   lr_scheduler_type       warmup_steps      seed     ..._train_batch_size │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ _objective_5eb621f1   PENDING                     1        9.7891e-06       0.00365679   linear                       1557.61   94.7158                       12 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Trial status: 1 PENDING
+Current time: 2025-08-13 01:07:04. Total running time: 30s
+Logical resource usage: 39.0/64 CPUs, 1.0/1 GPUs (0.0/1.0 accelerator_type:G)
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Trial name            status       num_train_epochs     learning_rate     weight_decay   lr_scheduler_type       warmup_steps      seed     ..._train_batch_size │
+├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ _objective_5eb621f1   PENDING                     1        9.7891e-06       0.00365679   linear                       1557.61   94.7158                       12 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+Trial _objective_5eb621f1 started with configuration:
+╭─────────────────────────────────────────────────╮
+│ Trial _objective_5eb621f1 config                │
+├─────────────────────────────────────────────────┤
+│ learning_rate                           0.00001 │
+│ lr_scheduler_type                        linear │
+│ num_train_epochs                              1 │
+│ per_device_train_batch_size                  12 │
+│ seed                                   94.71576 │
+│ warmup_steps                         1557.61171 │
+│ weight_decay                            0.00366 │
+╰─────────────────────────────────────────────────╯
