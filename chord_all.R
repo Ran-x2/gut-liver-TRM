@@ -1,5 +1,5 @@
 library(circlize)
-setwd('C:/Users/andre/Documents/GitHub/gut-liver-TRM/Revision')
+setwd('C:/Users/andre/Documents/GitHub/gut-liver-TRM/Revision/refined_clone_chord/')
 tissue_colors <- c("PB"="#b23429", "L"="#655e2f", "LP"="#db7843", "IEL"="#f4bf5c")
 celltype_palette_cd4 <- c('PB TCM'= '#94d53f',
                           'IEL TRM'= '#3a8433',
@@ -82,7 +82,7 @@ chordDiagram(
 )
 
 circos.trackPlotRegion(track.index = 1, panel.fun = panel.fun, bg.border = NA)
-dev.copy(jpeg,'refined_clone_chord/cd4_chord_donor_averaged_total_clone_normalized.png', width=14, height=14, units="in", res=500)
+dev.copy(jpeg,'cd4_chord_donor_averaged_total_clone_normalized.png', width=14, height=14, units="in", res=500)
 dev.off()
 ## ===========================================================
 # CD8  chord diagram
@@ -138,5 +138,5 @@ chordDiagram(
 
 
 circos.trackPlotRegion(track.index = 1, panel.fun = panel.fun, bg.border = NA)
-dev.copy(jpeg, 'refined_clone_chord/cd8_chord_donor_averaged_total_clone_normalized.png', width=14, height=14, units="in", res=500)
+dev.copy(jpeg, 'cd8_chord_donor_averaged_total_clone_normalized.png', width=14, height=14, units="in", res=500)
 dev.off()

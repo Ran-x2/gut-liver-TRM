@@ -1,5 +1,5 @@
 library(circlize)
-setwd("G:/My Drive/result/publication/cellreport/revision/GLIPH2/GLIPH2_results")
+setwd("C:/Users/andre/Documents/GitHub/gut-liver-TRM/Revision/GLIPH2")
 celltype_palette_cd4 <- c('PB TCM'= '#94d53f',
                           'IEL TRM'= '#3a8433',
                           'LP FOXP3+ Treg'= '#BEC765', 
