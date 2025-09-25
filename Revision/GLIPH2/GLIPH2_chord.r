@@ -141,10 +141,3 @@ chordDiagram(
 circos.trackPlotRegion(track.index = 1, panel.fun = panel.fun, bg.border = NA)
 dev.copy(jpeg,'cd8_GLIPH2_chord_donor_averaged_total_clone_normalized.png', width=14, height=14, units="in", res=500)
 dev.off()
-
-
-
-
-
-
-
