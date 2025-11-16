@@ -1,31 +1,0 @@
-2025-08-13 01:02:36.324327: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2025-08-13 01:02:36.383325: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-AttributeError: 'MessageFactory' object has no attribute 'GetPrototype'
-2025-08-13 01:03:06.818842: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-AttributeError: 'MessageFactory' object has no attribute 'GetPrototype'
-  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  2.41it/s]100%|██████████| 1/1 [00:00<00:00,  2.40it/s]
-/home/rxr456/miniconda3/envs/geneformer/lib/python3.10/site-packages/geneformer/tokenizer.py:473: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
-  for i in adata.var["ensembl_id_collapsed"][coding_miRNA_loc]
-/home/rxr456/miniconda3/envs/geneformer/lib/python3.10/site-packages/geneformer/tokenizer.py:476: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
-  coding_miRNA_ids = adata.var["ensembl_id_collapsed"][coding_miRNA_loc]
-Hyperparameter tuning is highly recommended for optimal results. No training_args provided; using default hyperparameters.
-  0%|          | 0/1 [00:00<?, ?it/s]2025-08-13 01:05:42,601	INFO worker.py:1749 -- Started a local Ray instance.
-Some weights of BertForSequenceClassification were not initialized from the model checkpoint at /home/rxr456/Geneformer/gf-12L-95M-i4096 and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight', 'classifier.bias', 'classifier.weight']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-/home/rxr456/miniconda3/envs/geneformer/lib/python3.10/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
-  warnings.warn(
-Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
-Some weights of BertForSequenceClassification were not initialized from the model checkpoint at /home/rxr456/Geneformer/gf-12L-95M-i4096 and are newly initialized: ['bert.pooler.dense.bias', 'bert.pooler.dense.weight', 'classifier.bias', 'classifier.weight']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-No ray_config provided. Proceeding with default, but ranges may need adjustment depending on model.
-/home/rxr456/miniconda3/envs/geneformer/lib/python3.10/site-packages/ray/tune/tune.py:583: UserWarning: The `local_dir` argument is deprecated and will be removed. This will pass-through to set the `storage_path` for now but will raise an error in the future. You should only set the `storage_path` from now on.
-  warnings.warn(
-2025-08-13 01:06:34,097	INFO tensorboardx.py:193 -- pip install "ray[tune]" to see TensorBoard files.
-2025-08-13 01:06:34,097	WARNING callback.py:136 -- The TensorboardX logger cannot be instantiated because either TensorboardX or one of it's dependencies is not installed. Please make sure you have the latest version of TensorboardX installed: `pip install -U tensorboardx`
-2025-08-13 01:06:34,097	WARNING tune.py:900 -- AIR_VERBOSITY is set, ignoring passed-in ProgressReporter for now.
-[36m(_objective pid=3344315)[0m 2025-08-13 01:07:18.819058: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-[36m(_objective pid=3344315)[0m 2025-08-13 01:07:18.852624: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-[36m(_objective pid=3344315)[0m To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-[36m(_objective pid=3344315)[0m AttributeError: 'MessageFactory' object has no attribute 'GetPrototype'
-slurmstepd: error: *** JOB 2730099 ON gput074 CANCELLED AT 2025-08-13T01:07:24 ***

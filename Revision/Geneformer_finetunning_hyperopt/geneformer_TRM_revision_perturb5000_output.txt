@@ -1,7 +1,0 @@
-Running /home/rxr456/Github/gut-liver-TRM/Revision/Geneformer_finetunning_hyperopt/geneformer_hpc_2_state_emb.py in /mnt/vstor/SOM_PATH_DKB50/members/rxr456/Trapecar_geneformer_finetune/Donor_AJG2309_L_TCRab_CD8ab_TRM/ ...
-Donor_AJG2309_L_TCRab_CD8ab_TRM_expansion
-['/mnt/vstor/SOM_PATH_DKB50/members/rxr456/Trapecar_geneformer_finetune/Donor_AJG2309_L_TCRab_CD8ab_TRM/250812_geneformer_cellClassifier_Donor_AJG2309_L_TCRab_CD8ab_TRM_expansion/ksplit1/_objective_2025-08-12_03-12-53/experiment_state-2025-08-12_03-12-54.json']
-/mnt/vstor/SOM_PATH_DKB50/members/rxr456/Trapecar_geneformer_finetune/Donor_AJG2309_L_TCRab_CD8ab_TRM/250812_geneformer_cellClassifier_Donor_AJG2309_L_TCRab_CD8ab_TRM_expansion/ksplit1/run-cbb8c4e6/checkpoint-15
-/mnt/vstor/SOM_PATH_DKB50/members/rxr456/Trapecar_geneformer_finetune/Donor_AJG2309_L_TCRab_CD8ab_TRM/250812_geneformer_cellClassifier_Donor_AJG2309_L_TCRab_CD8ab_TRM_expansion/ksplit1/run-cbb8c4e6/checkpoint-15
-emb dict generated
-start perturbing
